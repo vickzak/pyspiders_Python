@@ -349,16 +349,52 @@
 #         print(k,end=' ') 
 #     print()
 
+# import math
+# a=math.trunc(4.67)
+# print(a)
+
+# def add(a,b,/):
+#     return a+b
+# print(add(10,30))
+
+# def add(a,b,/,*,c,d):
+#     return a+b+c+d
+# print(add(10,30,c=44,d=55))
+
+# def add(a,b=20,/):
+#     return a+b
+# print(add(10,30))
+
+
+# def add(*args):
+#     l=[]
+#     for i in args:
+#         l.append(i)
+#     print(l)
+# add(1,2,34,'hello',1+3j)
 
 
 
+# def add(*,a,b):
+#     return a+b
+# print(add(a=33,b=1))
+
+# def add(c,d,/,*,a,b):
+#     return a+b+c+d
+# print(add(11,44,a=33,b=1))
 
 
+# def add(*,a,b=10):
+#     return a+b
+# print(add(a=33,b=1))
 
-
-
-
-
+# def add(**kwargs):
+#     # for i in kwargs:
+#         # print(i)
+#         # print(**kwargs)
+#         # print(kwargs)
+   
+# add(a=33,b=1,c='bye')
 
 
 

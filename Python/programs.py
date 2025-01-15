@@ -495,7 +495,7 @@
 # a=int(input("enter a arnage"))
 # num1=0
 # num2=1
-# next_num=num2
+# next_num=num1
 # count=0
 # while count <a:
 #   print(next_num,end=',')
@@ -529,11 +529,231 @@
 
 
 
+# .....................................fibonacci normal practice
+# a=int(input("Enter a number"))
+# n1=0
+# n2=1
+# n3=n2
+# c=0
+# while c<a:
+#   print(n3,end=' ')
+#   c+=1
+#   n1,n2=n2,n3
+#   n3=n1+n2
 
+
+
+
+# ..................................recurssion fibonacci
+# def fibonacci(n):
+#   if n<0:
+#     return 'invalid input'
+#   elif n==0:
+#     return 0
+#   elif n==1 or n==2:
+#     return 1
+#   else:
+#     return fibonacci(n-1)+fibonacci(n-2)
+# print(fibonacci(8))
+# def fibonacci(n):
+#   if n<0:
+#    return 'Invalid Input'
+#   elif n==0:
+#     return 0
+#   elif n==1 or n==2:
+#     return 1
+#   else:
+#     return fibonacci(n-1)+fibonacci(n-2) 
+# print(fibonacci(8)) 
+    # f(4)+f(3) --> f(3)+f(2) --> f(2)+f(1) --> 1
+    # f(2)+f(1) --> 1
+    # 1
+    # 1
+    # 1
+
+
+# nonparameterized constructor
+# class A:
+#   def __init__(self):
+#     self.a=input("Enter your name : ")
+#     print(self.a)
+# a=A()
+
+
+# nested class
+
+# class A:
+#   def __init__(self,a):
+#     self.a=a
+#     # print(self.a)
+#   class B:
+#     def __init__(self,b):
+#       self.b=b
+#   b1=B(20)
+# a1=A(30)
+# # print(a1.__dict__)
+# # print(a1.b1.b)
+# # print(A.b1.b)
+
+
+# 2
+# class A:
+#   def __init__(self,a):
+#     self.a=a
+#   class B:
+#     def __init__(self,b):
+#       self.b=b
+# a1=A(333)
+# b1=A.B(100)
+# # print(a1.__dict__,b1.__dict__)
+
+# has a relation
+
+
+# class A:
+#   def __init__(self,a):
+#     self.a=a
+# class B:
+#   a1=A(333)
+#   def __init__(self,b):
+#     self.b=b
+# b1=B(3433)
+# print(b1.a1.a)
+
+
+
+# class company:
+#   def __init__(self,cname,cid):
+#     self.cname=cname
+#     self.cid=cid
+# class company2(company):
+#   def __init__(self,cloc,ctime):
+#     self.cloc=cloc
+#     self.ctime=ctime
+#     super().__init__('infosys',123)
+# class company3(company2):
+#   def __init__(self,cpp):
+#     self.cpp=cpp
+#     super().__init__('bangalore',33)
+# c1=company3('marketing')
+# print(c1.__dict__)
+
+
+
+
+
+# constructor chaining and  method chaining
+
+# #constructor chaining
+# """class A:
+#     def _init_(self):
+#         print("Hi")
+
+# class B(A):
+#     def _init_(self):
+#         super()._init_()
+#         print("hello")
+
+# obj = B()
+# """
+# #method chaining
+# class C:
+#     def _init_(self):
+#         print("This is class DHANUSH")
+
+# class D(C):
+#     def _init_(self):
+#         super()._init_()
+#         print("This is class Abrar")
+        
+#     def example(self):
+#         print("This is an example")
+
+# class E(D):
+#     def _init_(self):
+#         print("E constructor")
+#     def dhanush(self):
+#         super().example()
+#         print("This is class E")
+        
+# ob1 = E()#it needs contructor that's it, when it gets a contructor it stops there.
+# #ob1.example()
+# ob1.dhanush()
 
 
   
+# .......................................encapsulation.........................
+# class A:
+#     i = 10
+#     _j = 100
+#     __k = 1000
+#     def dhanush(self):#public
+#         self.a = 10
+#         return self.a
+#     def _abrar(self):#protected
+#         self.b = 20
+#         return self.b
+#     def __pavan(self):#private
+#         self.c = 200
+#         return self.c
+        
+#     def hemanth(self):
+#         return self.__pavan()
+        
+#     def apple(self):
+#         return "Hi"
+#     def banana(self):
+#         return self.apple()
+        
+# obj = A()
+# print(obj.dhanush())
+# print(obj._abrar())
+# print(obj.hemanth())
+# print(obj.banana())
+# print(obj._A_pavan())
+# print(obj.i)
+# print(obj._j)
+# print(obj._A_k)
 
+
+# ..............ABSTRACTION.......................
+# python basically doesn't support abstraction
+# basic definition is functionality is known and implemenmtation is hidden
+# abstract class--> a class having more than 1 abstract method (or) a class derived ABC class which belongs to abc module
+                # --> abstract class cannot be instantiated  means no object can be created  to abstract class
+                # abstract class can have abstract method as well as normal methods i.e concrete method
+# abstract method:a method which has only declaration  no implementation use @abstractmethod
+
+from abc import ABC
+class Vehicle(ABC):
+  def __init__(self,n):
+    self.no_of_tyre=n
+  def start(self):
+    pass
+
+class Bike(Vehicle):
+  def __init__(self,n,color):
+    super().__init__(n)
+    self.color=color
+  def start(self):
+    print("start with kick")
+class Scooty(Vehicle):
+  def __init__(self,n):
+    super().__init__(n)
+  def start(self):
+    print("starts with self")
+class Car(Vehicle):
+  def __init__(self,n):
+     super().__init__(n)
+  def start(self):
+    print("start with key")
+
+b=Bike(2,'black')
+b.start()
+s=Scooty(2)
+s.start()
+c=Car(4)
+c.start()
 
 
 
