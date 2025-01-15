@@ -405,11 +405,176 @@
     
     
 
-s=input("enter  a string... ")
-d={}
-for i in s:
-  if i not in d:
-    d[i]=1
-  else:
-    d[i]+=1
-print(d)
+# s=input("enter  a string... ")
+# d={}
+# for i in s:
+#   if i not in d:
+#     d[i]=1
+#   else:
+#     d[i]+=1
+# print(d)
+
+
+
+
+# .........................Polymorphism and its 4 types
+
+# # duck typing
+# class Duck:
+#     def swim(self):
+#         print("Iam a Duck ,i can swim")
+#     def speaks(self):
+#         print("quack quack")
+# class Dog:
+#       def swim(self):
+#         print("Iam a Dog ,i can swim")
+#       def speaks(self):
+#         print("wooof wooof")
+# class Person:
+#       def speaks(self):
+#         print("blah blah blah")
+        
+# class Demo:
+#     def display(self,obj):
+#         obj.swim
+
+
+# # operator overloading
+# class ComplexNumber:
+#     def _init_(self,r,i):
+#         self.real=r
+#         self.imaginary=i
+#     def _add_(self,other):# syntax we created to add 2 complex numbers here self = c1 object(2,3) and other is c2 object(8,9)
+#     #   return f" {self.real+other.real} + { self.imaginary+other.imaginary} i" using fsring format
+#         return str(self.real+other.real)+ "+" + str(self.imaginary+other.imaginary) + "i"  # using string format
+       
+# c1=ComplexNumber(2,3)
+# c2=ComplexNumber(8,9)
+# print(c1+c2) # here we get error because + happens with integr and string as well how is this as we give 1+3 behind the scene is int._add(1,3),similarly for '1'+'2' it is str.add_('1'+'3') ,but here now for complex its not defined so we need to defined it ,i.e whenever it sees + i'll create a add function above it navigates there as above
+# # here this + operator performs beyond its capability
+# # + calls above add method not that int or str class
+
+# # operator overloading assignment
+# class Person:
+#     def _init_(self,name,age):
+#         self.name=name
+#         self.age=age
+#     def _gt_(self,other):
+#         #here self = obj1 = p1 and other = obj2 =p2
+#         if self.age>other.age:
+#             return True
+#         else:
+#             return False
+# p1=Person('abrar',44)
+# p2=Person('hafeez',77)
+# if p1>p2:
+#     print(f"{p1.name} is elder and will pay the bill")
+# else:
+#     print(f"{p2.name} is elder and will pay the bill")
+# # int.gt when we call >  behind the scens int._gt_(self,x) invokes
+# # simlilary < = int._lt(self,y)
+# # ?similarly <= = int._le_(self,x)
+
+
+
+# method overloading
+# #  multpile methods with same name but with different number of args
+# # pyhton doesn't support this but we can overcome this
+# # note: if you want to utilize  the parameters like a,b  within the class make sure to give self.a ......or similrly to others if not u can normally use it for your purposes
+
+
+
+# # class Demo:
+# #     def add(self,a,b):
+# #         return a+b
+# #     def add(self,a,b,c):
+# #         return a+b+c
+# # d=Demo()
+# # # d.add(2,3)
+# # print(d.add(2,4,5)) # here the ineterpretor considers add with 3 args coz its line  y line to over come we have 2 stpes below
+
+# # 1
+# # class Demo:
+# #     def add(self,a,b,c=0):
+# #         return a+b+c
+# # d=Demo()
+# # print(d.add(2,3))
+# # print(d.add(2,4,5))
+    
+        
+# # 2
+# class Demo:
+#     def add(self,*args):
+#         s=0
+#         for i in args:
+#             s+=i
+#         return s
+            
+# d=Demo()
+# print(d.add(2,3))
+# print(d.add(2,4,5))
+# print(d.add(2,3,33,4,55,7,8,9))
+
+
+#method overriding
+#it basically works on inheritance 
+# # Scenario 1
+# # class Father:
+# #     def sleeps(self):
+# #         print("sleeps from 10pm to 5am")
+# #     def eats(self):
+# #         print("eats normally")
+# # class Son(Father):
+# #     pass
+# # s=Son()
+# # s.sleeps()
+# # s.eats()
+
+# # scenario2
+# # here it takes sons sleep method
+# # class Father:
+# #     def sleeps(self):
+# #         print("sleeps from 10pm to 5am")
+# #     def eats(self):
+# #         print("eats normally")
+# # class Son(Father):
+# #     def sleeps(self):
+# #         print('sleeps as usaul as father sleeps')
+# # s=Son()
+# # s.sleeps()
+# # # s.eats()
+
+# # scenario 3 to overcome this we use super()
+# class Father:
+#     def sleeps(self):
+#         print("sleeps from 10pm to 5am")
+#     def eats(self):
+#         print("eats normally")
+# class Son(Father):
+#     def sleeps(self):
+#         print('sleeps as usaul as father sleeps')
+#         super().sleeps()
+# s=Son()
+# s.sleeps()
+# # s.eats()
+
+
+# generators
+# def gen(s):
+#     for i in s:
+#         if i in 'aeiou':
+#             yield i
+# r=gen('abrar')
+# print(next(r))
+# print(next(r))
+# # print(next(r))
+
+
+# def gen(*args):
+#     for i in args:
+#         yield i
+# r=gen('abrar','hafeez','adnan','shoaib','rahman','fahad')
+# d={}
+# for j in r:
+#     d[j]=len(j)
+# print(d)
