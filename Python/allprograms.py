@@ -397,5 +397,19 @@
 # add(a=33,b=1,c='bye')
 
 
+# a='abbcbaa'
+# d={}
+# for i in a:
+#     d[i]=a.count(i)
+# print(d)
+    
+    
 
-
+s=input("enter  a string... ")
+d={}
+for i in s:
+  if i not in d:
+    d[i]=1
+  else:
+    d[i]+=1
+print(d)
